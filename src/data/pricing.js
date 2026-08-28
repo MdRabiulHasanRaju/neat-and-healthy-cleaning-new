@@ -1,0 +1,73 @@
+// Pricing packages for the pricing page and quote estimator.
+export const pricingPackages = [
+  {
+    slug: 'hourly-cleaning',
+    name: 'Hourly Cleaning',
+    icon: 'FiClock',
+    tagline: 'Flexible help by the hour',
+    price: 35,
+    unit: 'per hour / per cleaner',
+    popular: false,
+    features: [
+      'Minimum 2 hours booking',
+      'Trained, insured cleaner',
+      'Eco-friendly supplies included',
+      'Choose your tasks',
+      'Same-day availability',
+    ],
+    cta: 'Book Hourly',
+  },
+  {
+    slug: 'deep-cleaning',
+    name: 'Deep Cleaning',
+    icon: 'FiZap',
+    tagline: 'Top-to-bottom detail clean',
+    price: 199,
+    unit: 'from / per visit',
+    popular: true,
+    features: [
+      '2-3 person crew',
+      '52-point deep checklist',
+      'Appliance detailing',
+      'Inside cabinets on request',
+      'Satisfaction guarantee',
+    ],
+    cta: 'Book Deep Clean',
+  },
+  {
+    slug: 'villa-cleaning',
+    name: 'Villa Cleaning',
+    icon: 'FiHome',
+    tagline: 'Whole-villa specialist clean',
+    price: 179,
+    unit: 'from / per visit',
+    popular: false,
+    features: [
+      'Multi-storey coverage',
+      'Outdoor patio & furniture',
+      'Maid’s room included',
+      'Ground-floor windows',
+      'Larger crews for speed',
+    ],
+    cta: 'Book Villa Clean',
+  },
+  {
+    slug: 'office-cleaning',
+    name: 'Office Cleaning',
+    icon: 'FiBriefcase',
+    tagline: 'Recurring commercial contracts',
+    price: 129,
+    unit: 'from / per visit',
+    popular: false,
+    features: [
+      'Daily or weekly plans',
+      'After-hours scheduling',
+      'Dedicated account manager',
+      'Compliance documentation',
+      'Custom scope',
+    ],
+    cta: 'Request Quote',
+  },
+];
+
+export default pricingPackages;
