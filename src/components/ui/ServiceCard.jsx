@@ -23,8 +23,9 @@ export default function ServiceCard({ service, index = 0 }) {
         <div className="mb-5 inline-flex items-center justify-center text-white">
           <img className='shadow-glow rounded-2xl h-80 w-96 object-cover' src={service.heroImage} alt={service.heroImage} />
         </div>
-        <div className="absolute top-10 left-10 mb-5 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-primary-gradient text-white shadow-glow">
-          <Icon size={26} />
+        <div className="absolute top-10 left-10 mb-5 px-3 py-1 inline-flex items-center justify-center rounded-2xl bg-primary-gradient text-white shadow-glow">
+          {/* <Icon size={26} /> */}
+          Most Populer
         </div>
         <h3 className="text-xl font-bold text-ink dark:text-white">{service.name}</h3>
         <p className="mt-2 flex-1 text-sm leading-relaxed text-gray dark:text-slate-300">

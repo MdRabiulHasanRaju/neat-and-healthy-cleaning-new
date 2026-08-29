@@ -15,7 +15,7 @@ export default function BackToTop() {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.8 }}
-          className="fixed bottom-24 right-5 z-40 flex h-11 w-11 items-center justify-center rounded-full bg-ink text-white shadow-card ring-1 ring-white/10 transition-transform hover:-translate-y-1 dark:bg-white dark:text-ink"
+          className="fixed bottom-40 right-5 z-40 flex h-11 w-11 items-center justify-center rounded-full bg-ink text-white shadow-card ring-1 ring-white/10 transition-transform hover:-translate-y-1 dark:bg-white dark:text-ink"
         >
           <FiArrowUp size={20} />
         </motion.button>

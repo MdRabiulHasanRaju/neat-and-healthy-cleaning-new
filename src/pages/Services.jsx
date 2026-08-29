@@ -33,7 +33,7 @@ export default function Services() {
       <PageHero
         title="Cleaning services for every need"
         description="16 specialist services covering homes, offices, and everything in between. All eco-friendly, all guaranteed."
-        image={images.cleanersDining}
+        image="/images/deep-cleaning-dubai-neat-and-healthy-cleaning.webp"
         crumbs={crumbs}
       />
 

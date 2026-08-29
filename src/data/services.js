@@ -36,7 +36,7 @@ export const services = [
     short: 'A spotless, healthy home — every visit, guaranteed.',
     summary:
       'Reclaim your weekends. Our trained, insured crew keeps your apartment or villa immaculate with eco-friendly products and a checklist.',
-    heroImage: images.heroRoom,
+    heroImage: "/images/services/Residential Cleaning in dubai - neat and healthy cleaning.webp",
     galleryImage: images.livingRoom,
     benefits: [
       { icon: 'FiShield', title: 'Vetted & insured', desc: 'Background-checked, uniformed professionals you can trust.' },
@@ -67,7 +67,7 @@ export const services = [
     short: 'Immaculate workspaces that impress clients and energise teams.',
     summary:
       'From boutiques to corporate towers, we deliver reliable, discreet commercial cleaning with flexible after-hours scheduling and full compliance documentation.',
-    heroImage: images.officeDesk,
+    heroImage: '/images/services/Commercial cleaning in dubai - neat and healthy cleaning.webp',
     galleryImage: images.officeWorkspace,
     benefits: [
       { icon: 'FiClock', title: 'After-hours service', desc: 'Minimal disruption — we clean before or after business hours.' },
@@ -124,12 +124,12 @@ export const services = [
   },
   {
     slug: 'office-cleaning',
-    name: 'Office Cleaning',
+    name: 'Office Deep Cleaning',
     icon: 'FiMonitor',
     short: 'Daily, weekly, or one-off office cleaning tailored to your team.',
     summary:
       'A clean office is a productive office. We keep desks, meeting rooms, kitchens, and washrooms pristine so your team can focus on what matters.',
-    heroImage: images.officeWorkspace,
+    heroImage: "/images/services/office-deep-cleaning-dubai-neat-and-healthy-cleaning.webp",
     galleryImage: images.officeDesk,
     benefits: [
       { icon: 'FiCalendar', title: 'Daily or weekly', desc: 'Recurring contracts with the same reliable crew.' },
@@ -155,12 +155,12 @@ export const services = [
   },
   {
     slug: 'apartment-cleaning',
-    name: 'Apartment Cleaning',
+    name: 'Apartment Deep Cleaning',
     icon: 'FiGrid',
     short: 'Effortless apartment living — clean, fresh, and ready to enjoy.',
     summary:
       'Studio or 3-bedroom, we know apartments. Our crew navigates tight spaces and shared facilities with care, leaving your home spotless.',
-    heroImage: images.livingRoom,
+    heroImage: "/images/services/apartmen deep cleaning dubai - neat and healthy cleaning services.webp",
     galleryImage: images.livingRoomWood,
     benefits: [
       { icon: 'FiClock', title: 'Fast turnaround', desc: 'Most apartments cleaned in 2-4 hours.' },
@@ -186,12 +186,12 @@ export const services = [
   },
   {
     slug: 'villa-cleaning',
-    name: 'Villa Cleaning',
+    name: 'Villa Deep Cleaning',
     icon: 'FiHome',
     short: 'Whole-villa care for multi-storey homes, gardens, and maids’ rooms.',
     summary:
       'Villas need more than a quick tidy. Our villa specialists handle multiple floors, outdoor areas, and large surfaces with a detailed, whole-home approach.',
-    heroImage: images.villa,
+    heroImage: "/images/services/villa deep cleaning inside dubai - neat and healthy cleaning.webp",
     galleryImage: images.villaHill,
     benefits: [
       { icon: 'FiUsers', title: 'Larger crews', desc: '2-4 cleaners for faster, thorough coverage.' },
@@ -216,13 +216,13 @@ export const services = [
     priceFrom: 179,
   },
   {
-    slug: 'move-in-cleaning',
-    name: 'Move In Cleaning',
+    slug: 'move-in-out-deep-cleaning',
+    name: 'Move In/Out Deep Cleaning',
     icon: 'FiLogIn',
     short: 'Walk into a spotless new home — before your boxes arrive.',
     summary:
       'Make your new place truly yours. We deep clean every surface before you move in so you arrive to a fresh, sanitised, ready-to-live space.',
-    heroImage: images.livingRoomWood,
+    heroImage: "/images/services/move-in-out-deep-cleaning-dubai-neat-and-healthy-cleaning.webp",
     galleryImage: images.heroRoom,
     benefits: [
       { icon: 'FiZap', title: 'Empty-home deep clean', desc: 'Best results — we clean what is normally hidden by furniture.' },
@@ -244,37 +244,6 @@ export const services = [
     beforeAfter: { before: images.heroRoom, after: images.livingRoom },
     faqs: standardFaqs,
     related: ['move-out-cleaning', 'deep-cleaning', 'residential-cleaning', 'apartment-cleaning'],
-    priceFrom: 199,
-  },
-  {
-    slug: 'move-out-cleaning',
-    name: 'Move Out Cleaning',
-    icon: 'FiLogOut',
-    short: 'Get your full deposit back with an end-of-tenancy deep clean.',
-    summary:
-      'Landlords and property managers love our move-out cleans. We deliver the deep, documented clean needed to secure your deposit.',
-    heroImage: images.cleanersVacuum,
-    galleryImage: images.cleanersDining,
-    benefits: [
-      { icon: 'FiFileText', title: 'Deposit-focused', desc: 'We target the areas landlords inspect most.' },
-      { icon: 'FiCamera', title: 'Before/after photos', desc: 'Documented proof of the clean, on request.' },
-      { icon: 'FiZap', title: 'Appliance detailing', desc: 'Oven, fridge, and AC vents degreased.' },
-      { icon: 'FiCheckCircle', title: 'Checklist report', desc: 'Signed completion checklist for your records.' },
-    ],
-    process: standardProcess,
-    included: [
-      'Full deep clean of all rooms',
-      'Inside cabinets, wardrobes, and drawers wiped',
-      'Kitchen appliances degreased inside and out',
-      'Bathrooms descaled and disinfected',
-      'Limescale removed from taps and showerheads',
-      'Walls spot-cleaned and marks removed where possible',
-      'Windows and frames cleaned',
-      'Floors vacuumed and mopped',
-    ],
-    beforeAfter: { before: images.cleanersDining, after: images.cleanersVacuum },
-    faqs: standardFaqs,
-    related: ['move-in-cleaning', 'deep-cleaning', 'post-construction-cleaning', 'carpet-cleaning'],
     priceFrom: 199,
   },
   {
@@ -346,7 +315,7 @@ export const services = [
     short: 'Deep-extraction carpet cleaning that lifts stains and restores pile.',
     summary:
       'Hot-water extraction lifts dirt, allergens, and stains from deep within your carpet — leaving it fresh, sanitised, and fast-drying.',
-    heroImage: images.vacuumCarpet,
+    heroImage: "/images/services/Carpet Cleaning Services Dubai - Neat and Healthy Cleaning.webp",
     galleryImage: images.vacuumSofa,
     benefits: [
       { icon: 'FiDroplet', title: 'Hot extraction', desc: 'Removes dirt and allergens from the carpet base.' },
@@ -377,7 +346,7 @@ export const services = [
     short: 'Refresh and sanitise your upholstery — fabric, leather, or microfibre.',
     summary:
       'From fabric sofas to leather lounges, we identify the right method for your upholstery and lift dirt, stains, and allergens safely.',
-    heroImage: images.vacuumSofa,
+    heroImage: "/images/services/sofa cleaning in dubai - neat and healthy cleaning.webp",
     galleryImage: images.vacuumCarpet,
     benefits: [
       { icon: 'FiSearch', title: 'Fibre-specific', desc: 'Method matched to fabric, leather, or microfibre.' },
@@ -475,7 +444,7 @@ export const services = [
     short: 'Streak-free, crystal-clear windows — inside and out.',
     summary:
       'From ground-floor villas to high-rise apartments, our pure-water-fed pole system and trained team deliver spotless, streak-free windows.',
-    heroImage: images.windowClean,
+    heroImage: "/images/services/window cleaning dubai - neat and healthy cleaning.webp",
     galleryImage: images.windowRoof,
     benefits: [
       { icon: 'FiDroplet', title: 'Pure-water system', desc: 'Deionised water for a spot-free, chemical-free finish.' },
@@ -506,7 +475,7 @@ export const services = [
     short: 'Remove the dust, debris, and residue — move-in ready, guaranteed.',
     summary:
       'After the builders leave, the real clean begins. We remove fine dust, paint splatter, and adhesive residue to make your renovated space truly liveable.',
-    heroImage: images.construction,
+    heroImage: "/images/services/post-construction-cleaning-dubai-neat-and-healthy-cleaning.webp",
     galleryImage: images.heroRoom,
     benefits: [
       { icon: 'FiZap', title: 'Dust elimination', desc: 'Fine construction dust removed from every surface.' },

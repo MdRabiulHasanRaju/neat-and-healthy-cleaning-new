@@ -6,7 +6,7 @@ import useIcon from '../../hooks/useIcon.js';
 // Interactive process timeline with numbered steps and connecting line.
 export default function ProcessTimeline() {
   return (
-    <Section className="bg-white dark:bg-slate-900/30">
+    <Section className="bg-white pt-14 dark:bg-slate-900/30">
       <div className="container-px">
         <SectionHeading
           eyebrow="How It Works"

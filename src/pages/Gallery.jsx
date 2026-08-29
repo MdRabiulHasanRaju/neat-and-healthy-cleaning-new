@@ -35,7 +35,7 @@ export default function Gallery() {
       <PageHero
         title="Our work, in pictures"
         description="Real results from real homes and offices across the UAE. Filter by category to explore."
-        image={images.cleanersDining}
+        image="/images/deep-cleaning-dubai-neat-and-healthy-cleaning.webp"
         crumbs={crumbs}
       />
 

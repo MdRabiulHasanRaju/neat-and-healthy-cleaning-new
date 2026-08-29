@@ -23,7 +23,7 @@ export default function Contact() {
       <PageHero
         title="Let's get your space spotless"
         description="Book a service, request a quote, or just ask a question. We reply within a few hours — every day."
-        image={images.cleanersVan}
+        image="/images/team-banner-neat-and-healthy-cleaning.webp"
         crumbs={crumbs}
       />
 

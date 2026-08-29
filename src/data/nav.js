@@ -19,8 +19,7 @@ export const navItems = [
       {
         title: 'Move & Build',
         items: [
-          { slug: 'move-in-cleaning', name: 'Move In Cleaning' },
-          { slug: 'move-out-cleaning', name: 'Move Out Cleaning' },
+          { slug: 'move-in-out-deep-cleaning', name: 'Move In/Out Deep Cleaning' },
           { slug: 'post-construction-cleaning', name: 'Post Construction Cleaning' },
         ],
       },
@@ -51,12 +50,15 @@ export const navItems = [
     mega: true,
     groups: [
       {
-        title: 'Emirates',
+        title: 'Dubai',
         items: [
-          { slug: 'dubai', name: 'Dubai' },
-          { slug: 'abu-dhabi', name: 'Abu Dhabi' },
-          { slug: 'sharjah', name: 'Sharjah' },
-          { slug: 'ajman', name: 'Ajman' },
+          { slug: 'central-downtown-dubai', name: 'Central & Downtown Dubai' },
+          { slug: 'marina-waterfront-areas', name: 'Marina & Waterfront Areas' },
+          { slug: 'jumeirah-beachside-areas',name: 'Jumeirah & Beachside Areas' },
+          { slug: 'premium-villa-communities', name: 'Premium Villa Communities' },
+          { slug: 'popular-family-communities', name: 'Popular Family Communities' },
+          { slug: 'apartment-residential-areas', name: 'Apartment & Residential Areas' },
+          { slug: 'older-eastern-dubai-areas', name: 'Older & Eastern Dubai Areas' },
         ],
       },
     ],

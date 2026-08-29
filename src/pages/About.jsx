@@ -28,7 +28,7 @@ export default function About() {
       <PageHero
         title="Cleaning with care since 2018"
         description="We are a team of 120+ trained professionals on a mission to make premium cleaning effortless, eco-friendly, and reliable — for every home and office in the UAE."
-        image={images.cleanersTeam}
+        image="/images/team-banner-neat-and-healthy-cleaning.webp"
         crumbs={crumbs}
       />
 

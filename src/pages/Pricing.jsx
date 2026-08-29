@@ -33,7 +33,7 @@ export default function Pricing() {
       <PageHero
         title="Simple, transparent pricing"
         description="No hidden fees, no surprises. Pick a package or request a custom quote — you approve the price before we begin."
-        image={images.ecoProducts}
+        image="/images/deep-cleaning-dubai-neat-and-healthy-cleaning.webp"
         crumbs={crumbs}
       />
 

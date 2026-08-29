@@ -2,7 +2,7 @@
 export const homeFaqs = [
   {
     q: 'Which areas do you serve?',
-    a: 'We serve Dubai, Abu Dhabi, Sharjah, and Ajman — including all major residential communities and commercial districts. Same-day and next-day appointments are available in most areas.',
+    a: 'We serve all areas in Dubai — including all major residential communities and commercial districts. Same-day and next-day appointments are available in most areas.',
   },
   {
     q: 'Are your cleaners insured and background-checked?',
