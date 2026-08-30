@@ -30,7 +30,7 @@ export default function Hero() {
         <div className="absolute inset-0 bg-hero-grid bg-[size:40px_40px] opacity-40" />
       </motion.div>
 
-      <div className="container-px py-20 sm:py-28 lg:py-36">
+      <div className="container-px py-14 sm:py-16 lg:py-20">
         <motion.div style={{ opacity }} className="max-w-3xl">
           <motion.span
             initial={{ opacity: 0, y: 20 }}
@@ -44,7 +44,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="mt-5 text-4xl font-extrabold leading-[1.1] tracking-tight text-ink dark:text-white sm:text-5xl lg:text-6xl text-balance"
+            className="mt-5 text-2xl font-extrabold leading-[1.1] tracking-tight text-ink dark:text-white sm:text-5xl lg:text-5xl text-balance"
           >
             DUBAI'S PROFESSIONAL <span className="gradient-text">DEEP CLEANING COMPANY.</span>
           </motion.h1>
@@ -52,7 +52,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="mt-5 max-w-xl text-lg leading-relaxed text-ink-muted dark:text-slate-300"
+            className="mt-5 max-w-xl text-sm lg:text-base leading-relaxed text-ink-muted dark:text-slate-300"
           >
             Looking for a trusted deep cleaning company in Dubai? Neat and Healthy Cleaning's trained professionals provide thorough deep cleaning for villas, apartments, offices, and commercial properties across Dubai, using professional equipment and quality cleaning products.
           </motion.p>
