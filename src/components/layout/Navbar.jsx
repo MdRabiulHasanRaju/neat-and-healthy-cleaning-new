@@ -30,11 +30,10 @@ export default function Navbar() {
   }, [mobileOpen]);
 
   return (
+    <>
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? 'glass shadow-soft'
-          : 'bg-transparent'
+        scrolled ? 'glass shadow-soft' : 'bg-transparent'
       }`}
     >
       <nav className="container-px flex h-16 items-center justify-between gap-4 lg:h-20" aria-label="Main navigation">
@@ -139,8 +138,8 @@ export default function Navbar() {
           </button>
         </div>
       </nav>
-
-      {/* Mobile drawer */}
+    </header>
+    {/* Mobile drawer */}
       <AnimatePresence>
         {mobileOpen && (
           <>
@@ -148,7 +147,7 @@ export default function Navbar() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 z-40 bg-ink/40 backdrop-blur-sm lg:hidden"
+              className="fixed inset-0 z-[90] bg-ink/40 backdrop-blur-sm lg:hidden"
               onClick={() => setMobileOpen(false)}
             />
             <motion.aside
@@ -156,7 +155,7 @@ export default function Navbar() {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 30, stiffness: 300 }}
-              className="fixed right-0 top-0 z-50 w-[85%] max-w-sm overflow-y-auto bg-white p-6 shadow-card dark:bg-slate-900 lg:hidden"
+              className="fixed inset-y-0 right-0 z-[100] w-[85%] max-w-sm overflow-y-auto bg-white p-6 shadow-card dark:bg-slate-900 lg:hidden"
             >
               <div className="flex items-center justify-between">
                 <Logo />
@@ -211,6 +210,6 @@ export default function Navbar() {
           </>
         )}
       </AnimatePresence>
-    </header>
+      </>
   );
 }
