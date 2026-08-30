@@ -156,7 +156,7 @@ export default function Navbar() {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 30, stiffness: 300 }}
-              className="fixed right-0 top-0 z-50 h-full w-[85%] max-w-sm overflow-y-auto bg-white p-6 shadow-card dark:bg-slate-900 lg:hidden"
+              className="fixed right-0 top-0 z-50 w-[85%] max-w-sm overflow-y-auto bg-white p-6 shadow-card dark:bg-slate-900 lg:hidden"
             >
               <div className="flex items-center justify-between">
                 <Logo />

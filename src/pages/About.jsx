@@ -38,7 +38,7 @@ export default function About() {
           <div className="grid items-center gap-12 lg:grid-cols-2">
             <Reveal>
               <LazyImage
-                src={images.cleanersVan}
+                src="/images/services/office-deep-cleaning-dubai-neat-and-healthy-cleaning.webp"
                 alt="Neat & Healthy cleaning team loading their van"
                 className="aspect-[4/3] w-full overflow-hidden rounded-4xl shadow-card"
                 imgClassName="h-full w-full object-cover"
@@ -114,7 +114,7 @@ export default function About() {
                     src={member.photo}
                     alt={member.name}
                     className="aspect-square w-full overflow-hidden"
-                    imgClassName="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    imgClassName="h-full w-full object-top object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                   <div className="p-5 text-center">
                     <h3 className="text-lg font-bold text-ink dark:text-white">{member.name}</h3>
