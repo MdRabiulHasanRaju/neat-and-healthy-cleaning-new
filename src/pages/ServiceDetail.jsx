@@ -13,9 +13,13 @@ import BeforeAfterSlider from '../components/ui/BeforeAfterSlider.jsx';
 import ServiceCard from '../components/ui/ServiceCard.jsx';
 import QuoteEstimator from '../components/common/QuoteEstimator.jsx';
 import CTASection from '../components/common/CTASection.jsx';
+import Testimonials from '../components/sections/Testimonials.jsx';
+// import ElfsightWidget from '../components/common/ElfsightWidget.jsx';
 import { getService, services } from '../data/services.js';
+import { whyChooseUs } from '../data/whyChooseUs.js';
 import { locations } from '../data/locations.js';
 import { formatAed } from '../utils/helpers.js';
+import site from '../data/site.js'
 
 // Service detail template — renders hero, benefits, process, what's included,
 // before/after, pricing CTA, FAQ, related services, and areas.
@@ -49,13 +53,13 @@ export default function ServiceDetail() {
       />
       <PageHero
         title={service.name}
-        description={service.summary}
+        description={service.short}
         image={service.heroImage}
         crumbs={crumbs}
       >
         <div className="mt-6 flex flex-wrap items-center gap-3">
-          <Button to="/contact" size="lg">Book Now</Button>
-          <Button to="/pricing" variant="outline" size="lg" className="!border-white/30 !bg-white/10 !text-white hover:!bg-white/20">
+          <Button href={`https://api.whatsapp.com/send?phone=${site.whatsapp}`} size="lg">Book Now</Button>
+          <Button href="#" variant="outline" size="lg" className="!border-white/30 !bg-white/10 !text-white hover:!bg-white/20">
             From {formatAed(service.priceFrom)}
           </Button>
         </div>
@@ -67,10 +71,10 @@ export default function ServiceDetail() {
           <div className="grid gap-12 lg:grid-cols-3">
             <div className="lg:col-span-2">
               <span className="section-eyebrow">Overview</span>
-              <h2 className="mt-4 text-3xl font-bold tracking-tight text-ink dark:text-white">
-                What is {service.name.toLowerCase()}?
-              </h2>
-              <p className="mt-4 text-lg leading-relaxed text-gray dark:text-slate-300">
+              <p className="mt-4 text-lg font-bold tracking-tight text-ink dark:text-white">
+                {service.summaryTitle}
+              </p>
+              <p className="mt-4 text-base text-justify leading-relaxed text-gray dark:text-slate-300">
                 {service.summary}
               </p>
 
@@ -92,12 +96,34 @@ export default function ServiceDetail() {
                   );
                 })}
               </div>
+              <p className='text-center'>
+                <Button href={`https://api.whatsapp.com/send?phone=${site.whatsapp}`} className="mt-5" iconRight={FiArrowRight}>
+                      Book This Service
+                </Button>
+              </p>
             </div>
 
             {/* Sticky quote estimator */}
             <div className="lg:sticky lg:top-24 lg:self-start">
               <QuoteEstimator />
             </div>
+          </div>
+        </div>
+      </Section>
+
+            {/* Before / After */}
+      <Section className="pt-0 pb-20">
+        <div className="container-px">
+          <SectionHeading
+            eyebrow="Before & After"
+            title="See the difference"
+            description="Drag the slider to compare before and after our professional clean."
+          />
+          <div className="mx-auto mt-10 max-w-4xl">
+            <BeforeAfterSlider
+              before={service.beforeAfter.before}
+              after={service.beforeAfter.after}
+            />
           </div>
         </div>
       </Section>
@@ -123,7 +149,13 @@ export default function ServiceDetail() {
                   </Reveal>
                 ))}
               </ul>
+              <p className='text-center'>
+                <Button href={`https://api.whatsapp.com/send?phone=${site.whatsapp}`} className="mt-5" iconRight={FiArrowRight}>
+                      Book This Service
+                </Button>
+              </p>
             </div>
+            
 
             <div>
               <span className="section-eyebrow">Our Process</span>
@@ -145,27 +177,84 @@ export default function ServiceDetail() {
                   </Reveal>
                 ))}
               </div>
+              <p className='text-center'>
+                <Button href={`https://api.whatsapp.com/send?phone=${site.whatsapp}`} className="mt-5" iconRight={FiArrowRight}>
+                      Book This Service
+                </Button>
+              </p>
             </div>
           </div>
         </div>
       </Section>
 
-      {/* Before / After */}
-      <Section>
+      {/* why choose us */}
+      <Section className="bg-white dark:bg-slate-900/30 !py-16">
         <div className="container-px">
-          <SectionHeading
-            eyebrow="Before & After"
-            title="See the difference"
-            description="Drag the slider to compare before and after our professional clean."
-          />
-          <div className="mx-auto mt-10 max-w-4xl">
-            <BeforeAfterSlider
-              before={service.beforeAfter.before}
-              after={service.beforeAfter.after}
-            />
+          <div className="max-w-2xl">
+            <span className="text-sm font-bold uppercase tracking-wider text-primary">
+              Why Choose Us
+            </span>
+
+            <h2 className="mt-2 text-3xl font-extrabold tracking-tight text-ink dark:text-white sm:text-4xl">
+              Why Choose Neat & Healthy Cleaning?
+            </h2>
+
+            <p className="mt-4 leading-7 text-gray dark:text-slate-400">
+              We combine professional cleaning standards, trained teams, flexible
+              scheduling, and transparent pricing to make your cleaning experience
+              simple, reliable, and hassle-free.
+            </p>
+          </div>
+          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {whyChooseUs.map((item, i) => {
+              const Icon = useIcon(item.icon);
+
+              return (
+                <Reveal
+                  key={item.title}
+                  delay={(i % 3) * 0.08}
+                >
+                  <div
+                    className="
+                      group h-full rounded-2xl bg-white p-6
+                      shadow-soft ring-1 ring-slate-900/5
+                      transition-all duration-300
+                      hover:-translate-y-1 hover:shadow-card
+                      dark:bg-slate-900/60 dark:ring-white/10
+                    "
+                  >
+                    <div className="flex items-start gap-4">
+                      {/* Icon */}
+                      <span
+                        className="
+                          flex h-12 w-12 shrink-0 items-center justify-center
+                          rounded-xl bg-primary/10 text-primary
+                          transition-all duration-300
+                          group-hover:bg-primary group-hover:text-white
+                        "
+                      >
+                        <Icon size={23} />
+                      </span>
+
+                      {/* Content */}
+                      <div className="min-w-0">
+                        <h3 className="font-bold leading-snug text-ink dark:text-white">
+                          {item.title}
+                        </h3>
+
+                        <p className="mt-2 text-sm leading-6 text-gray dark:text-slate-400">
+                          {item.desc}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </Reveal>
+              );
+            })}
           </div>
         </div>
       </Section>
+
 
       {/* Pricing CTA */}
       <Section className="bg-white dark:bg-slate-900/30 !py-16">
@@ -176,7 +265,7 @@ export default function ServiceDetail() {
               <p className="mt-2 text-white/80">From {formatAed(service.priceFrom)}. No deposit. Satisfaction guaranteed.</p>
             </div>
             <div className="flex flex-col gap-3 sm:flex-row">
-              <Button to="/contact" variant="accent" size="lg">Book Now</Button>
+              <Button href={`https://api.whatsapp.com/send?phone=${site.whatsapp}`} variant="accent" size="lg">Book Now</Button>
               <Button to="/pricing" variant="outline" size="lg" className="!border-white/30 !bg-white/10 !text-white hover:!bg-white/20">View pricing</Button>
             </div>
           </div>
@@ -192,6 +281,9 @@ export default function ServiceDetail() {
           </div>
         </div>
       </Section>
+
+      <Testimonials />
+      {/* <ElfsightWidget /> */}
 
       {/* Related services */}
       {related.length > 0 && (

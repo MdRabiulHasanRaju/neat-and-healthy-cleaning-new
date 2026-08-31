@@ -84,7 +84,7 @@ export default function Navbar() {
                                 {group.items.map((s) => (
                                   <li key={s.slug}>
                                     <Link
-                                      to={`/services/${s.slug}`}
+                                      to={`${item.to}/${s.slug}`}
                                       className="block rounded-lg px-3 py-2 text-sm font-medium text-ink-soft transition-colors hover:bg-primary/10 hover:text-primary dark:text-slate-200"
                                     >
                                       {s.name}
@@ -119,13 +119,13 @@ export default function Navbar() {
             {theme === 'dark' ? <FiSun size={18} /> : <FiMoon size={18} />}
           </button>
           <a
-            href={`tel:${site.phoneHref}`}
+            href={`tel:${site.whatsapp}`}
             aria-label="Call us"
             className="hidden h-10 w-10 items-center justify-center rounded-full text-ink-soft transition-colors hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-white/10 sm:flex"
           >
             <FiPhone size={18} />
           </a>
-          <Button to="/contact" size="sm" className="hidden sm:inline-flex">
+          <Button href={`https://api.whatsapp.com/send?phone=${site.whatsapp}`} size="sm" className="hidden sm:inline-flex">
             Book Now
           </Button>
           <button
@@ -188,7 +188,7 @@ export default function Navbar() {
                         {item.groups.flatMap((g) => g.items).map((s) => (
                           <li key={s.slug}>
                             <Link
-                              to={`/services/${s.slug}`}
+                              to={`${item.to}/${s.slug}`}
                               className="block rounded-lg px-3 py-2 text-sm text-gray hover:text-primary dark:text-slate-300"
                             >
                               {s.name}
@@ -201,8 +201,8 @@ export default function Navbar() {
                 ))}
               </ul>
               <div className="mt-6 space-y-3">
-                <Button to="/contact" className="w-full">Book Now</Button>
-                <Button href={`https://wa.me/${site.whatsapp}`} variant="outline" className="w-full" icon={FaWhatsapp}>
+                <Button href={`tel:${site.whatsapp}`} className="w-full">Book Now</Button>
+                <Button href={`https://api.whatsapp.com/send?phone=${site.whatsapp}`} variant="outline" className="w-full" icon={FaWhatsapp}>
                   WhatsApp
                 </Button>
               </div>

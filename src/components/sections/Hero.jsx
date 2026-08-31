@@ -62,10 +62,10 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="mt-8 flex flex-col gap-3 sm:flex-row"
           >
-            <Button to="/contact" size="lg" iconRight={FiArrowRight}>
+            <Button href={`https://api.whatsapp.com/send?phone=${site.whatsapp}`} size="lg" iconRight={FiArrowRight}>
               Book Now
             </Button>
-            <Button to="/pricing" variant="outline" size="lg" icon={FiPhone}>
+            <Button href={`tel:${site.whatsapp}`} variant="outline" size="lg" icon={FiPhone}>
               Get Free Quote
             </Button>
           </motion.div>

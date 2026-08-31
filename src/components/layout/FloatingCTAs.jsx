@@ -8,7 +8,7 @@ export default function FloatingCTAs() {
   return (
     <div className="fixed bottom-5 right-5 z-40 flex flex-col gap-3">
       <a
-        href={`https://wa.me/${site.whatsapp}`}
+        href={`https://api.whatsapp.com/send?phone=${site.whatsapp}`}
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Chat on WhatsApp"
@@ -20,7 +20,7 @@ export default function FloatingCTAs() {
         </span>
       </a>
       <a
-        href={`tel:${site.phoneHref}`}
+        href={`tel:${site.whatsapp}`}
         aria-label="Call us"
         className="group flex h-14 w-14 items-center justify-center rounded-full bg-primary-gradient text-white shadow-glow transition-transform hover:scale-110"
       >

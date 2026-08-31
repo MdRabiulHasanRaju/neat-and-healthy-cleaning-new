@@ -27,11 +27,11 @@ export default function CTASection({
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-lg text-slate-300">{description}</p>
             <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-              <Button to="/contact" variant="accent" size="lg" icon={FiPhone}>
+              <Button href={`tel:${site.whatsapp}`} variant="accent" size="lg" icon={FiPhone}>
                 Book Now
               </Button>
               <Button
-                href={`https://wa.me/${site.whatsapp}`}
+                href={`https://api.whatsapp.com/send?phone=${site.whatsapp}`}
                 variant="outline"
                 size="lg"
                 icon={FiMessageCircle}

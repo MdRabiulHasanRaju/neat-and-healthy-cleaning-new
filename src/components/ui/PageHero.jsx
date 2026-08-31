@@ -3,6 +3,7 @@ import { useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 import LazyImage from './LazyImage.jsx';
 import Breadcrumbs from './Breadcrumbs.jsx';
+import TrustBadges from './TrustBadges.jsx';
 
 // Reusable inner-page hero with background image, breadcrumb, title, and
 // optional description. Used by service, area, and listing pages.
@@ -34,14 +35,16 @@ export default function PageHero({ title, description, image, crumbs = [], child
               <Breadcrumbs crumbs={crumbs} />
             </div>
           )}
-          <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl text-balance">
+          <h1 className="text-2xl font-extrabold tracking-tight text-white sm:text-5xl text-balance">
             {title}
           </h1>
           {description && (
-            <p className="mt-4 max-w-2xl text-lg leading-relaxed text-slate-200">{description}</p>
+            <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate-200">{description}</p>
           )}
           {children}
         </motion.div>
+        <br />
+      <TrustBadges className="max-w-2xl" />
       </div>
     </section>
   );

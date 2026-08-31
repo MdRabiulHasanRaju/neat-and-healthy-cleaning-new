@@ -76,7 +76,7 @@ export default function Footer() {
               </li>
               <li className="flex items-start gap-3">
                 <FiPhone className="mt-0.5 shrink-0 text-primary-300" size={16} />
-                <a href={`tel:${site.phoneHref}`} className="hover:text-primary-200">{site.phone}</a>
+                <a href={`tel:${site.whatsapp}`} className="hover:text-primary-200">{site.phone}</a>
               </li>
               <li className="flex items-start gap-3">
                 <FiMail className="mt-0.5 shrink-0 text-primary-300" size={16} />

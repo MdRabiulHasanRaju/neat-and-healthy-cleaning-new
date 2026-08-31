@@ -24,11 +24,12 @@ export const navItems = [
         ],
       },
       {
-        title: 'Commercial',
+        title: 'Residential/Commercial',
         items: [
           { slug: 'commercial-cleaning', name: 'Commercial Cleaning' },
           { slug: 'office-cleaning', name: 'Office Cleaning' },
           { slug: 'window-cleaning', name: 'Window Cleaning' },
+          { slug: 'facade-cleaning', name: 'Facade Cleaning Dubai' },
         ],
       },
       {

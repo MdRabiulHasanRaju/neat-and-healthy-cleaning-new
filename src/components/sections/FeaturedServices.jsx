@@ -7,6 +7,10 @@ import { services } from '../../data/services.js';
 
 // Featured services grid — shows the first 6 services on the homepage.
 export default function FeaturedServices() {
+  const featured = services
+    .filter(item => item.featured === true)
+    .sort((a, b) => a.position - b.position);
+
   return (
     <Section>
       <div className="container-px">
@@ -22,7 +26,7 @@ export default function FeaturedServices() {
           </Button>
         </div>
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {services.slice(0, 6).map((s, i) => (
+          {featured.map((s, i) => (
             <ServiceCard key={s.slug} service={s} index={i} />
           ))}
         </div>
