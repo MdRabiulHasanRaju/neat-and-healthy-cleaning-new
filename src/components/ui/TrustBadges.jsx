@@ -17,11 +17,11 @@ export default function TrustBadges({ className }) {
             transition={{ duration: 0.4, delay: i * 0.08 }}
             className="flex items-center gap-3 rounded-2xl bg-white p-4 ring-1 ring-slate-900/5 backdrop-blur dark:bg-slate-900/50 dark:ring-white/10"
           >
-            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
+            <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
               <Icon size={20} />
             </span>
             <div>
-              <p className="text-sm font-bold text-ink dark:text-white">{b.title}</p>
+              <p className="text-xs font-bold text-ink dark:text-white">{b.title}</p>
               <p className="text-xs text-gray dark:text-slate-400">{b.desc}</p>
             </div>
           </motion.div>

@@ -55,6 +55,8 @@ export default function ServiceDetail() {
         title={service.name}
         description={service.short}
         image={service.heroImage}
+        video={service.video??service.video}
+        // mobileVideo="/videos/deep-cleaning-hero-mobile.mp4"
         crumbs={crumbs}
       >
         <div className="mt-6 flex flex-wrap items-center gap-3">

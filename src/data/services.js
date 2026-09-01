@@ -75,6 +75,7 @@ export const services = [
       'From boutiques to corporate towers, we deliver reliable, discreet commercial cleaning with flexible after-hours scheduling and full compliance documentation.',
     heroImage: '/images/services/Commercial cleaning in dubai - neat and healthy cleaning.webp',
     galleryImage: images.officeWorkspace,
+    video: "/videos/Warehouse and Commercial Cleaning Dubai _ Neat & Healthy Cleaning Company.mp4",
     benefits: [
       { icon: 'FiClock', title: 'After-hours service', desc: 'Minimal disruption — we clean before or after business hours.' },
       { icon: 'FiFileText', title: 'Full compliance', desc: 'Insurance, risk assessments, and audit-ready records.' },
@@ -116,6 +117,8 @@ export const services = [
     '/images/services/A Cleaner clean the watch inside villa - Deep Cleaning of Villa Dubai- Neat and Healthy Cleaning.webp',
 
   galleryImage: images.cleanersVacuum,
+
+  video: "/videos/deep-cleaning-hero.mp4",
 
   benefits: [
     {
@@ -348,6 +351,8 @@ export const services = [
     "/images/services/villa deep cleaning inside dubai - neat and healthy cleaning.webp",
 
   galleryImage: images.villaHill,
+
+  video: "/videos/deep-cleaning-hero.mp4",
 
   benefits: [
     {
@@ -765,6 +770,7 @@ export const services = [
       'From ground-floor villas to high-rise apartments, our pure-water-fed pole system and trained team deliver spotless, streak-free windows.',
     heroImage: "/images/services/window cleaning dubai - neat and healthy cleaning.webp",
     galleryImage: images.windowRoof,
+    video: "/videos/Professional Window Cleaning Dubai – External Glass Cleaning Services _ Neat & Healthy Cleaning.mp4",
     benefits: [
       { icon: 'FiDroplet', title: 'Pure-water system', desc: 'Deionised water for a spot-free, chemical-free finish.' },
       { icon: 'FiWind', title: 'Reach & wash', desc: 'Carbon poles reach up to 20m without ladders.' },
@@ -845,6 +851,8 @@ export const services = [
     '/images/services/facade-cleaning-dubai-neat-and-healthy-cleaning.webp',
 
   galleryImage: images.facadeCleaning,
+
+  video: "/videos/Facade Cleaning Service in Dubai  _ Professional High Rise Glass Cleaning.mp4",
 
   benefits: [
     {

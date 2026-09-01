@@ -16,7 +16,11 @@ export default function TestimonialSlider() {
         768: { slidesPerView: 2 },
         1024: { slidesPerView: 3 },
       }}
-      autoplay={{ delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true }}
+      autoplay={{
+        delay: 5000,
+        disableOnInteraction: false,
+        pauseOnMouseEnter: true,
+      }}
       pagination={{ clickable: true }}
       loop
       className="!pb-12"
@@ -24,26 +28,56 @@ export default function TestimonialSlider() {
       {testimonials.map((t, i) => (
         <SwiperSlide key={i} className="h-auto">
           <figure className="flex h-full flex-col rounded-3xl bg-white p-7 shadow-card ring-1 ring-slate-900/5 dark:bg-slate-900/70 dark:ring-white/10">
-            <div className="flex gap-1 text-accent" aria-label={`${t.rating} out of 5 stars`}>
-              {Array.from({ length: t.rating }).map((_, s) => (
-                <FiStar key={s} fill="currentColor" size={18} />
-              ))}
+
+            {/* Rating */}
+            <div className="flex items-center gap-1 text-accent">
+              <span
+                aria-hidden="true"
+                className="flex gap-1"
+              >
+                {Array.from({ length: t.rating }).map((_, s) => (
+                  <FiStar
+                    key={s}
+                    fill="currentColor"
+                    size={18}
+                  />
+                ))}
+              </span>
+
+              <span className="sr-only">
+                {t.rating} out of 5 stars
+              </span>
             </div>
+
+            {/* Review */}
             <blockquote className="mt-4 flex-1 text-base leading-relaxed text-ink-soft dark:text-slate-200">
               “{t.text}”
             </blockquote>
+
+            {/* Customer */}
             <figcaption className="mt-6 flex items-center gap-3 border-t border-slate-100 pt-4 dark:border-white/10">
-              <div className="flex h-11 w-11 items-center justify-center rounded-full bg-primary-gradient text-sm font-bold text-white">
+              <div
+                aria-hidden="true"
+                className="flex h-11 w-11 items-center justify-center rounded-full bg-primary-gradient text-sm font-bold text-white"
+              >
                 {t.name.charAt(0)}
               </div>
+
               <div>
-                <p className="font-semibold text-ink dark:text-white">{t.name}</p>
-                <p className="text-xs text-gray dark:text-slate-400">{t.role}</p>
+                <p className="font-semibold text-ink dark:text-white">
+                  {t.name}
+                </p>
+
+                <p className="text-xs text-gray dark:text-slate-400">
+                  {t.role}
+                </p>
               </div>
+
               <span className="ml-auto rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary-700 dark:text-primary-200">
                 {t.service}
               </span>
             </figcaption>
+
           </figure>
         </SwiperSlide>
       ))}
