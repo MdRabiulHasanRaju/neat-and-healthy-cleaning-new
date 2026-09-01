@@ -914,8 +914,8 @@ export const services = [
   ],
 
   beforeAfter: {
-    before: images.facadeBefore,
-    after: images.facadeAfter
+    before: "/images/services/before-facade-cleaning.jpg",
+    after: "/images/services/after-facade-cleaning.jpg"
   },
 
   faqs: [
