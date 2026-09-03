@@ -1,24 +1,59 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import Seo, { breadcrumbSchema } from '../seo/Seo.jsx';
 import PageHero from '../components/ui/PageHero.jsx';
 import { Section } from '../components/ui/Section.jsx';
 import ServiceCard from '../components/ui/ServiceCard.jsx';
 import { FiSearch } from 'react-icons/fi';
-import { services } from '../data/services.js';
 import { images } from '../data/images.js';
 import CTASection from '../components/common/CTASection.jsx';
+import ServicesSkeleton from '../components/common/ServicesSkeleton.jsx';
 
 export default function Services() {
-  const crumbs = [{ name: 'Home', path: '/' }, { name: 'Services' }];
+  const crumbs = [
+    { name: 'Home', path: '/' },
+    { name: 'Services' }
+  ];
+
+  const [services, setServices] = useState([]);
   const [query, setQuery] = useState('');
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchServices = async () => {
+      try {
+        const response = await fetch(
+          'http://localhost/admin/api/services'
+        );
+
+        const result = await response.json();
+
+        console.log('Services API:', result);
+
+        if (result.success) {
+          setServices(result.data);
+        }
+      } catch (error) {
+        console.error('Services Fetch Error:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchServices();
+  }, []);
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
-    if (!q) return services;
-    return services.filter(
-      (s) => s.name.toLowerCase().includes(q) || s.short.toLowerCase().includes(q),
+
+    if (!q) {
+      return services;
+    }
+
+    return services.filter((s) =>
+      s.name?.toLowerCase().includes(q) ||
+      s.short?.toLowerCase().includes(q)
     );
-  }, [query]);
+  }, [query, services]);
 
   return (
     <>
@@ -30,6 +65,7 @@ export default function Services() {
         image={images.cleanersDining}
         schema={[breadcrumbSchema(crumbs)]}
       />
+
       <PageHero
         title="Cleaning services for every need"
         description="16 specialist services covering homes, offices, and everything in between. All eco-friendly, all guaranteed."
@@ -39,10 +75,15 @@ export default function Services() {
 
       <Section>
         <div className="container-px">
+
           {/* Search */}
           <div className="mx-auto mb-12 max-w-md">
             <div className="relative">
-              <FiSearch className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-gray" size={18} />
+              <FiSearch
+                className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-gray"
+                size={18}
+              />
+
               <input
                 type="search"
                 value={query}
@@ -54,16 +95,29 @@ export default function Services() {
             </div>
           </div>
 
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {filtered.map((s, i) => (
-              <ServiceCard key={s.slug} service={s} index={i} />
-            ))}
-          </div>
-          {filtered.length === 0 && (
+          {/* Loading */}
+          {loading && <ServicesSkeleton />}
+
+          {/* Services */}
+          {!loading && filtered.length > 0 && (
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {filtered.map((service, index) => (
+                <ServiceCard
+                  key={service.slug}
+                  service={service}
+                  index={index}
+                />
+              ))}
+            </div>
+          )}
+
+          {/* No Result */}
+          {!loading && filtered.length === 0 && (
             <p className="py-12 text-center text-gray dark:text-slate-400">
               No services match “{query}”. Try a different search.
             </p>
           )}
+
         </div>
       </Section>
 

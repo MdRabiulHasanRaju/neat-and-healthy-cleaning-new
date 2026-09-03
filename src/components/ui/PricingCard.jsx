@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import useIcon from '../../hooks/useIcon.js';
 import { formatAed } from '../../utils/helpers.js';
 import Button from './Button.jsx';
+import { site } from '../../data/site.js';
 
 export default function PricingCard({ pkg, index = 0 }) {
   const Icon = useIcon(pkg.icon);
@@ -49,7 +50,7 @@ export default function PricingCard({ pkg, index = 0 }) {
       </ul>
       <div className="mt-8">
         <Button
-          to="/contact"
+          href={`https://api.whatsapp.com/send?phone=${site.whatsapp}`}
           variant={pkg.popular ? 'accent' : 'outline'}
           className="w-full"
         >
