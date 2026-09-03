@@ -33,6 +33,7 @@ export const services = [
   {
     slug: 'residential-cleaning',
     name: 'Residential Cleaning',
+    category: "cleaning services",
     icon: 'FiHome',
     short: 'A spotless, healthy home — every visit, guaranteed.',
     summaryTitle:'',
@@ -68,6 +69,7 @@ export const services = [
   {
     slug: 'commercial-cleaning',
     name: 'Commercial Cleaning',
+    category: "cleaning services",
     icon: 'FiBriefcase',
     short: 'Immaculate workspaces that impress clients and energise teams.',
     summaryTitle:'',
@@ -105,6 +107,7 @@ export const services = [
   slug: 'deep-cleaning',
   name: 'Deep Cleaning Services Dubai',
   icon: 'FiZap',
+  category: "deep cleaning services",
 
   short:
     'Professional top-to-bottom deep cleaning for villas, apartments, offices, and commercial spaces across Dubai.',
@@ -264,6 +267,7 @@ export const services = [
   {
     slug: 'office-cleaning',
     name: 'Office Deep Cleaning',
+    category: "deep cleaning services",
     icon: 'FiMonitor',
     short: 'Daily, weekly, or one-off office cleaning tailored to your team.',
     summaryTitle:'',
@@ -299,6 +303,7 @@ export const services = [
   {
     slug: 'apartment-cleaning',
     name: 'Apartment Deep Cleaning',
+    category: "deep cleaning services",
     icon: 'FiGrid',
     short: 'Effortless apartment living — clean, fresh, and ready to enjoy.',
     summaryTitle:'',
@@ -335,6 +340,7 @@ export const services = [
   slug: 'villa-cleaning',
 
   name: 'Villa Deep Cleaning Dubai',
+  category: "deep cleaning services",
 
   icon: 'FiHome',
 
@@ -513,6 +519,7 @@ export const services = [
   {
     slug: 'move-in-out-deep-cleaning',
     name: 'Move In/Out Deep Cleaning',
+    category: "deep cleaning services",
     icon: 'FiLogIn',
     short: 'Walk into a spotless new home — before your boxes arrive.',
     summaryTitle:'',
@@ -548,6 +555,7 @@ export const services = [
   {
     slug: 'kitchen-cleaning',
     name: 'Kitchen Cleaning',
+    category: "deep cleaning services",
     icon: 'FiCoffee',
     short: 'A grease-free, sanitised kitchen you will actually want to cook in.',
     summaryTitle:'',
@@ -583,6 +591,7 @@ export const services = [
   {
     slug: 'bathroom-cleaning',
     name: 'Bathroom Cleaning',
+    category: "deep cleaning services",
     icon: 'FiDroplet',
     short: 'Sparkling, sanitised, limescale-free bathrooms.',
     summaryTitle:'',
@@ -618,6 +627,7 @@ export const services = [
   {
     slug: 'carpet-cleaning',
     name: 'Carpet Cleaning',
+    category: "cleaning services",
     icon: 'FiLayers',
     short: 'Deep-extraction carpet cleaning that lifts stains and restores pile.',
     summaryTitle:'',
@@ -653,6 +663,7 @@ export const services = [
   {
     slug: 'sofa-cleaning',
     name: 'Sofa Cleaning',
+    category: "cleaning services",
     icon: 'FiHeart',
     short: 'Refresh and sanitise your upholstery — fabric, leather, or microfibre.',
     summaryTitle:'',
@@ -688,6 +699,7 @@ export const services = [
   {
     slug: 'mattress-cleaning',
     name: 'Mattress Cleaning',
+    category: "cleaning services",
     icon: 'FiMoon',
     short: 'Sleep easier on a sanitised, dust-mite-free mattress.',
     summaryTitle:'',
@@ -723,6 +735,7 @@ export const services = [
   {
     slug: 'marble-polishing',
     name: 'Marble Polishing',
+    category: "cleaning services",
     icon: 'FiAward',
     short: 'Restore the mirror shine to your marble floors and surfaces.',
     summaryTitle:'',
@@ -763,6 +776,7 @@ export const services = [
   {
     slug: 'window-cleaning',
     name: 'Window Cleaning',
+    category: "cleaning services",
     icon: 'FiWind',
     short: 'Streak-free, crystal-clear windows — inside and out.',
     summaryTitle:'',
@@ -799,6 +813,7 @@ export const services = [
   {
     slug: 'post-construction-cleaning',
     name: 'Post Construction Cleaning',
+    category: "cleaning services",
     icon: 'FiTool',
     short: 'Remove the dust, debris, and residue — move-in ready, guaranteed.',
     summaryTitle:'',
@@ -835,6 +850,7 @@ export const services = [
   slug: 'facade-cleaning',
 
   name: 'Facade Cleaning Dubai',
+  category: "cleaning services",
 
   icon: 'FiLayers',
 

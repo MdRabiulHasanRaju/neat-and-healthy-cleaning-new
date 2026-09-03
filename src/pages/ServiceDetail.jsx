@@ -4,6 +4,7 @@ import { FiCheck, FiArrowRight, FiMapPin } from 'react-icons/fi';
 import Seo, { serviceSchema, faqSchema, breadcrumbSchema } from '../seo/Seo.jsx';
 import { Helmet } from 'react-helmet-async';
 import PageHero from '../components/ui/PageHero.jsx';
+import ServiceDetailSkeleton from '../components/common/ServiceDetailSkeleton.jsx';
 import { Section, SectionHeading } from '../components/ui/Section.jsx';
 import Reveal from '../components/ui/Reveal.jsx';
 import useIcon from '../hooks/useIcon.js';
@@ -20,16 +21,76 @@ import { whyChooseUs } from '../data/whyChooseUs.js';
 import { locations } from '../data/locations.js';
 import { formatAed } from '../utils/helpers.js';
 import site from '../data/site.js'
+import { useEffect, useState } from 'react';
 
-// Service detail template — renders hero, benefits, process, what's included,
-// before/after, pricing CTA, FAQ, related services, and areas.
 export default function ServiceDetail() {
   const { slug } = useParams();
-  const service = getService(slug);
+
+  const [service, setService] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [services, setServices] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      setLoading(true);
+      setService(null);
+
+      try {
+        const [serviceResponse, servicesResponse] = await Promise.all([
+          fetch(
+            `http://localhost/admin/api/service-details?slug=${slug}`
+          ),
+          fetch(
+            `http://localhost/admin/api/services`
+          ),
+        ]);
+
+        const serviceResult = await serviceResponse.json();
+        const servicesResult = await servicesResponse.json();
+
+        console.log('Service:', serviceResult);
+        console.log('All Services:', servicesResult);
+
+        if (serviceResult.success) {
+          setService(serviceResult.data);
+        }
+
+        if (servicesResult.success) {
+          setServices(servicesResult.data);
+        }
+
+      } catch (error) {
+        console.error('Fetch Error:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    if (slug) {
+      fetchData();
+    }
+  }, [slug]);
+
+  if (loading) {
+    return <ServiceDetailSkeleton />;
+  }
+    
+  // const service = getService(slug);
 
   if (!service) return <Navigate to="/404" replace />;
 
-  const related = service.related.map(getService).filter(Boolean);
+  // const related = service.related.map(getService).filter(Boolean);
+
+  const servicesBySlug = Object.fromEntries(
+    services.map((item) => [item.slug, item])
+  );
+
+  const related = (service.related || [])
+    .map((slug) => servicesBySlug[slug])
+  .filter(Boolean);
+
+  console.log(related)
+
   const crumbs = [
     { name: 'Home', path: '/' },
     { name: 'Services', path: '/services' },
