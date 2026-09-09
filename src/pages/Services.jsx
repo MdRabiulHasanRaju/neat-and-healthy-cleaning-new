@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
+import { useTheme } from '../context/ThemeContext.jsx';
 import Seo, { breadcrumbSchema } from '../seo/Seo.jsx';
 import PageHero from '../components/ui/PageHero.jsx';
 import { Section } from '../components/ui/Section.jsx';
@@ -9,6 +10,7 @@ import CTASection from '../components/common/CTASection.jsx';
 import ServicesSkeleton from '../components/common/ServicesSkeleton.jsx';
 
 export default function Services() {
+  const {base_url} = useTheme();
   const crumbs = [
     { name: 'Home', path: '/' },
     { name: 'Services' }
@@ -22,12 +24,12 @@ export default function Services() {
     const fetchServices = async () => {
       try {
         const response = await fetch(
-          'http://localhost/admin/api/services'
+          `${base_url}/admin/api/services`
         );
 
         const result = await response.json();
 
-        console.log('Services API:', result);
+        // console.log('Services API:', result);
 
         if (result.success) {
           setServices(result.data);

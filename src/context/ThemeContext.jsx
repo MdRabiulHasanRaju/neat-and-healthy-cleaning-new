@@ -60,8 +60,10 @@ export function ThemeProvider({ children }) {
     setTheme((t) => (t === 'dark' ? 'light' : 'dark'));
   };
 
+  const base_url = "http://localhost";
+
   return (
-    <ThemeContext.Provider value={{ theme, toggle }}>
+    <ThemeContext.Provider value={{ theme, toggle, base_url }}>
       {children}
     </ThemeContext.Provider>
   );

@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useTheme } from '../../context/ThemeContext.jsx';
 import { Section, SectionHeading } from '../ui/Section.jsx';
 import ServiceCard from '../ui/ServiceCard.jsx';
 import Button from '../ui/Button.jsx';
@@ -6,6 +7,7 @@ import { FiArrowRight } from 'react-icons/fi';
 import FeaturedServicesSkeleton from '../common/FeaturedServicesSkeleton.jsx';
 
 export default function FeaturedServices() {
+  const {base_url} = useTheme();
   const [services, setServices] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -13,7 +15,7 @@ export default function FeaturedServices() {
     const fetchServices = async () => {
       try {
         const response = await fetch(
-          'http://localhost/admin/api/services'
+          `${base_url}/admin/api/services`
         );
 
         const result = await response.json();

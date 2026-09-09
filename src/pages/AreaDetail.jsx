@@ -1,4 +1,6 @@
+import { useState, useEffect } from 'react';
 import { useParams, Navigate, Link } from 'react-router-dom';
+import { useTheme } from '../context/ThemeContext.jsx';
 import { motion } from 'framer-motion';
 import { FiMapPin, FiArrowRight, FiCheck } from 'react-icons/fi';
 import Seo, { breadcrumbSchema } from '../seo/Seo.jsx';
@@ -9,7 +11,8 @@ import Button from '../components/ui/Button.jsx';
 import ServiceCard from '../components/ui/ServiceCard.jsx';
 import CTASection from '../components/common/CTASection.jsx';
 import { getLocation, locations } from '../data/locations.js';
-import { services } from '../data/services.js';
+// import { services } from '../data/services.js';
+import FeaturedServicesSkeleton from '../components/common/FeaturedServicesSkeleton.jsx';
 import { images } from '../data/images.js';
 
 // Area detail template — unique SEO content per emirate with nearby services,
@@ -24,6 +27,36 @@ export default function AreaDetail() {
     { name: 'Areas', path: '/areas' },
     { name: area.name },
   ];
+
+  const {base_url} = useTheme();
+  const [services, setServices] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchServices = async () => {
+      try {
+        const response = await fetch(
+          `${base_url}/admin/api/services`
+        );
+
+        const result = await response.json();
+
+        if (result.success) {
+          setServices(result.data);
+        }
+      } catch (error) {
+        console.error('Services Fetch Error:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchServices();
+  }, []);
+
+  const featured = services
+    .filter(item => Number(item.featured) === 1)
+    .sort((a, b) => Number(a.position) - Number(b.position));
 
   return (
     <>
@@ -104,11 +137,19 @@ export default function AreaDetail() {
             title={`Top services in ${area.name}`}
             description="The services most booked by customers in your area."
           />
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {services.slice(0, 6).map((s, i) => (
-              <ServiceCard key={s.slug} service={s} index={i} />
-            ))}
-          </div>
+          {loading ? (
+            <FeaturedServicesSkeleton />
+          ) : (
+            <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {featured.map((service, index) => (
+                <ServiceCard
+                  key={service.slug}
+                  service={service}
+                  index={index}
+                />
+              ))}
+            </div>
+          )}
         </div>
       </Section>
 

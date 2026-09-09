@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { FiCheck, FiArrowRight, FiMapPin } from 'react-icons/fi';
 import Seo, { serviceSchema, faqSchema, breadcrumbSchema } from '../seo/Seo.jsx';
 import { Helmet } from 'react-helmet-async';
+import { useTheme } from '../context/ThemeContext.jsx';
 import PageHero from '../components/ui/PageHero.jsx';
 import ServiceDetailSkeleton from '../components/common/ServiceDetailSkeleton.jsx';
 import { Section, SectionHeading } from '../components/ui/Section.jsx';
@@ -25,6 +26,7 @@ import { useEffect, useState } from 'react';
 
 export default function ServiceDetail() {
   const { slug } = useParams();
+  const {base_url} = useTheme();
 
   const [service, setService] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -38,18 +40,18 @@ export default function ServiceDetail() {
       try {
         const [serviceResponse, servicesResponse] = await Promise.all([
           fetch(
-            `http://localhost/admin/api/service-details?slug=${slug}`
+            `${base_url}/admin/api/service-details?slug=${slug}`
           ),
           fetch(
-            `http://localhost/admin/api/services`
+            `${base_url}/admin/api/services`
           ),
         ]);
 
         const serviceResult = await serviceResponse.json();
         const servicesResult = await servicesResponse.json();
 
-        console.log('Service:', serviceResult);
-        console.log('All Services:', servicesResult);
+        // console.log('Service:', serviceResult);
+        // console.log('All Services:', servicesResult);
 
         if (serviceResult.success) {
           setService(serviceResult.data);
@@ -89,7 +91,7 @@ export default function ServiceDetail() {
     .map((slug) => servicesBySlug[slug])
   .filter(Boolean);
 
-  console.log(related)
+  // console.log(related)
 
   const crumbs = [
     { name: 'Home', path: '/' },
