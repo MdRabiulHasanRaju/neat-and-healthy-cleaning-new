@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react';
+import { useTheme } from '../context/ThemeContext.jsx';
 import Seo, { breadcrumbSchema } from '../seo/Seo.jsx';
 import { Helmet } from 'react-helmet-async';
 import PageHero from '../components/ui/PageHero.jsx';
@@ -7,14 +9,47 @@ import Counter from '../components/ui/Counter.jsx';
 import LazyImage from '../components/ui/LazyImage.jsx';
 import useIcon from '../hooks/useIcon.js';
 import { images } from '../data/images.js';
-import { team } from '../data/team.js';
+// import { team } from '../data/team.js';
 import { coreValues, achievements, whyChooseUs } from '../data/company.js';
 import { stats } from '../data/stats.js';
 import CTASection from '../components/common/CTASection.jsx';
 import { motion } from 'framer-motion';
 
 export default function About() {
-  const crumbs = [{ name: 'Home', path: '/' }, { name: 'About' }];
+ const { base_url } = useTheme();
+
+  const crumbs = [
+    { name: 'Home', path: '/' },
+    { name: 'About' }
+  ];
+
+  const [team, setTeam] = useState([]);
+  const [teamLoading, setTeamLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchTeam = async () => {
+      try {
+        const response = await fetch(
+          `${base_url}/admin/api/staff`
+        );
+
+        const result = await response.json();
+
+        // console.log('Staff API:', result);
+
+        if (result.success) {
+          setTeam(result.data);
+        }
+      } catch (error) {
+        console.error('Staff Fetch Error:', error);
+      } finally {
+        setTeamLoading(false);
+      }
+    };
+
+    fetchTeam();
+  }, [base_url]);
+  
   return (
     <>
       <Seo
@@ -105,25 +140,65 @@ export default function About() {
       {/* Team */}
       <Section className="bg-white dark:bg-slate-900/30">
         <div className="container-px">
-          <SectionHeading eyebrow="Our Team" title="The people behind the clean" description="Experienced, trained, and passionate about what they do." />
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {team.map((member, i) => (
-              <Reveal key={member.name} delay={i * 0.08}>
-                <div className="group overflow-hidden rounded-3xl bg-bg shadow-card ring-1 ring-slate-900/5 dark:bg-slate-900/50 dark:ring-white/10">
-                  <LazyImage
-                    src={member.photo}
-                    alt={member.name}
-                    className="aspect-square w-full overflow-hidden"
-                    imgClassName="h-full w-full object-top object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                  <div className="p-5 text-center">
-                    <h3 className="text-lg font-bold text-ink dark:text-white">{member.name}</h3>
-                    <p className="text-sm text-primary">{member.role}</p>
+          <SectionHeading
+            eyebrow="Our Team"
+            title="The people behind the clean"
+            description="Experienced, trained, and passionate about what they do."
+          />
+
+          {teamLoading ? (
+            <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+              {[1, 2, 3, 4].map((item) => (
+                <div
+                  key={item}
+                  className="overflow-hidden rounded-3xl bg-bg shadow-card ring-1 ring-slate-900/5 dark:bg-slate-900/50 dark:ring-white/10"
+                >
+                  <div className="aspect-square w-full animate-pulse bg-slate-200 dark:bg-slate-800" />
+
+                  <div className="space-y-3 p-5">
+                    <div className="mx-auto h-5 w-32 animate-pulse rounded bg-slate-200 dark:bg-slate-800" />
+                    <div className="mx-auto h-4 w-24 animate-pulse rounded bg-slate-200 dark:bg-slate-800" />
                   </div>
                 </div>
-              </Reveal>
-            ))}
-          </div>
+              ))}
+            </div>
+          ) : team.length > 0 ? (
+            <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+              {team.map((member, i) => (
+                <Reveal
+                  key={member.id}
+                  delay={i * 0.08}
+                >
+                  <div className="group overflow-hidden rounded-3xl bg-bg shadow-card ring-1 ring-slate-900/5 dark:bg-slate-900/50 dark:ring-white/10">
+
+                    <LazyImage
+                      src={member.photo}
+                      alt={member.name}
+                      className="aspect-square w-full overflow-hidden"
+                      imgClassName="h-full w-full object-top object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+
+                    <div className="p-5 text-center">
+                      <h3 className="text-lg font-bold text-ink dark:text-white">
+                        {member.name}
+                      </h3>
+
+                      {member.designation && (
+                        <p className="text-sm text-primary">
+                          {member.designation}
+                        </p>
+                      )}
+                    </div>
+
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+          ) : (
+            <p className="mt-12 py-8 text-center text-gray dark:text-slate-400">
+              No team members available at the moment.
+            </p>
+          )}
         </div>
       </Section>
 
