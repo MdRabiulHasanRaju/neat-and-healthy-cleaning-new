@@ -5,11 +5,14 @@ import PageHero from '../components/ui/PageHero.jsx';
 import { Section, SectionHeading } from '../components/ui/Section.jsx';
 import ContactForm from '../components/forms/ContactForm.jsx';
 import BookForm from '../components/forms/BookForm.jsx';
-import { site } from '../data/site.js';
+// import { site } from '../data/site.js';
 import { images } from '../data/images.js';
+import { useTheme } from '../context/ThemeContext.jsx';
+
 
 export default function Contact() {
   const crumbs = [{ name: 'Home', path: '/' }, { name: 'Contact' }];
+  const { site } = useTheme();
   return (
     <>
       <Seo

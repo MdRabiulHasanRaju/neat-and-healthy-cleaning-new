@@ -1,10 +1,12 @@
 import { FaWhatsapp } from 'react-icons/fa6';
 import { FiPhone } from 'react-icons/fi';
-import { site } from '../../data/site.js';
+// import { site } from '../../data/site.js';
+import { useTheme } from '../../context/ThemeContext';
 
 // Sticky floating WhatsApp + Call buttons, fixed bottom-right on mobile and
 // bottom-right on desktop. Always visible for conversion.
 export default function FloatingCTAs() {
+  const { site } = useTheme();
   return (
     <div className="fixed bottom-5 right-5 z-40 flex flex-col gap-3">
       <a

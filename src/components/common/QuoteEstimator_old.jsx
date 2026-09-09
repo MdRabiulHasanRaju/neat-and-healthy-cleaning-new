@@ -2,7 +2,7 @@ import { useMemo, useState } from 'react';
 import { FiArrowRight, FiZap } from 'react-icons/fi';
 import { motion } from 'framer-motion';
 import { services } from '../../data/services.js';
-import { site } from '../../data/site.js';
+// import { site } from '../../data/site.js';
 import { formatAed } from '../../utils/helpers.js';
 import Button from '../ui/Button.jsx';
 

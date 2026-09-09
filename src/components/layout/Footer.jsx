@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom';
 import { FiMapPin, FiPhone, FiMail, FiClock } from 'react-icons/fi';
 import { FaInstagram, FaFacebookF, FaXTwitter, FaLinkedinIn, FaYoutube } from 'react-icons/fa6';
-import { site } from '../../data/site.js';
+// import { site } from '../../data/site.js';
+import { useTheme } from '../../context/ThemeContext.jsx';
 import { services } from '../../data/services.js';
 import { locations } from '../../data/locations.js';
 import NewsletterForm from '../forms/NewsletterForm.jsx';
@@ -9,6 +10,7 @@ import NewsletterForm from '../forms/NewsletterForm.jsx';
 // Site-wide footer with service links, area links, contact info, social icons,
 // and newsletter signup.
 export default function Footer() {
+  const { site } = useTheme();
   const socials = [
     { Icon: FaInstagram, href: site.social.instagram, label: 'Instagram' },
     { Icon: FaFacebookF, href: site.social.facebook, label: 'Facebook' },

@@ -4,10 +4,12 @@ import Field from '../ui/Field.jsx';
 import Button from '../ui/Button.jsx';
 import { useToast } from '../../context/ToastContext.jsx';
 import { services } from '../../data/services.js';
-import { site } from '../../data/site.js';
+// import { site } from '../../data/site.js';
+import {useTheme} from '../../context/ThemeContext.jsx'
 
 // Booking form with service, area, date, and time selection.
 export default function BookForm() {
+  const { site } = useTheme();
   const toast = useToast();
   const [form, setForm] = useState({
     name: '', email: '', phone: '', service: '', area: '', date: '', time: '', notes: '',

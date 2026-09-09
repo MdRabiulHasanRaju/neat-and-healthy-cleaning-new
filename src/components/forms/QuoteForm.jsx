@@ -4,10 +4,12 @@ import Field from '../ui/Field.jsx';
 import Button from '../ui/Button.jsx';
 import { useToast } from '../../context/ToastContext.jsx';
 import { services } from '../../data/services.js';
-import { site } from '../../data/site.js';
+// import { site } from '../../data/site.js';
+import {useTheme} from '../../context/ThemeContext.jsx';
 
 // Quote request form — more detailed than the booking form, for custom jobs.
 export default function QuoteForm() {
+  const { site } = useTheme();
   const toast = useToast();
   const [form, setForm] = useState({
     name: '', email: '', phone: '', service: '', area: '', propertyType: '', bedrooms: '', frequency: '', notes: '',

@@ -4,7 +4,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { FiMenu, FiX, FiPhone, FiChevronDown, FiSun, FiMoon } from 'react-icons/fi';
 import { FaWhatsapp } from 'react-icons/fa6';
 import { navItems } from '../../data/nav.js';
-import { site } from '../../data/site.js';
+// import { site } from '../../data/site.js';
 import { useTheme } from '../../context/ThemeContext.jsx';
 import useScrollPosition from '../../hooks/useScrollPosition.js';
 import Button from '../ui/Button.jsx';
@@ -13,10 +13,10 @@ import Logo from './Logo.jsx';
 // Sticky navbar with glassmorphism, mega menu for Services & Areas, mobile
 // drawer, theme toggle, and prominent CTA buttons.
 export default function Navbar() {
+  const { site , theme, toggle  } = useTheme();
   const scrolled = useScrollPosition(20);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [megaOpen, setMegaOpen] = useState(null);
-  const { theme, toggle } = useTheme();
   const location = useLocation();
 
   useEffect(() => {

@@ -1,13 +1,15 @@
 import { motion } from 'framer-motion';
 import { FiPhone, FiMessageCircle } from 'react-icons/fi';
 import Button from '../ui/Button.jsx';
-import { site } from '../../data/site.js';
+// import { site } from '../../data/site.js';
+import { useTheme } from '../../context/ThemeContext.jsx';
 
 // Reusable conversion-focused CTA banner. Used at the bottom of most pages.
 export default function CTASection({
   title = 'Ready for a spotless space?',
   description = 'Book in 60 seconds and let our vetted crew handle the rest. Same-day and next-day slots available across all four emirates.',
 }) {
+  const { site } = useTheme();
   return (
     <section className="py-20 sm:py-24">
       <div className="container-px">

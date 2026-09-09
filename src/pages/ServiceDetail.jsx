@@ -21,12 +21,12 @@ import { getService, services } from '../data/services.js';
 import { whyChooseUs } from '../data/whyChooseUs.js';
 import { locations } from '../data/locations.js';
 import { formatAed } from '../utils/helpers.js';
-import site from '../data/site.js'
+// import site from '../data/site.js'
 import { useEffect, useState } from 'react';
 
 export default function ServiceDetail() {
   const { slug } = useParams();
-  const {base_url} = useTheme();
+  const {base_url, site} = useTheme();
 
   const [service, setService] = useState(null);
   const [loading, setLoading] = useState(true);

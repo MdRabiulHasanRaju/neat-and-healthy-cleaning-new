@@ -3,9 +3,11 @@ import { motion } from 'framer-motion';
 import useIcon from '../../hooks/useIcon.js';
 import { formatAed } from '../../utils/helpers.js';
 import Button from './Button.jsx';
-import { site } from '../../data/site.js';
+// import { site } from '../../data/site.js';
+import { useTheme } from '../../context/ThemeContext.jsx';
 
 export default function PricingCard({ pkg, index = 0 }) {
+  const { site } = useTheme();
   const Icon = useIcon(pkg.icon);
 
   return (

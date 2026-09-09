@@ -3,9 +3,11 @@ import { FiArrowRight, FiPhone, FiStar } from 'react-icons/fi';
 import { useRef } from 'react';
 import Button from '../ui/Button.jsx';
 import TrustBadges from '../ui/TrustBadges.jsx';
-import { site } from '../../data/site.js';
+// import { site } from '../../data/site.js';
+import { useTheme } from '../../context/ThemeContext.jsx';
 
 export default function Hero() {
+  const { site } = useTheme();
   const ref = useRef(null);
 
   const { scrollYProgress } = useScroll({

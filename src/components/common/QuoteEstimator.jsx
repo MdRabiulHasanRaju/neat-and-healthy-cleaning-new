@@ -2,11 +2,13 @@ import { useEffect, useMemo, useState } from 'react';
 import { FiArrowRight, FiZap } from 'react-icons/fi';
 import { motion } from 'framer-motion';
 import { services } from '../../data/services_quote.js';
-import site from "../../data/site.js"
+// import site from "../../data/site.js"
 import { formatAed } from '../../utils/helpers.js';
 import Button from '../ui/Button.jsx';
+import { useTheme } from '../../context/ThemeContext.jsx';
 
 export default function QuoteEstimator() {
+  const { site } = useTheme();
   const [serviceSlug, setServiceSlug] = useState('');
   const [size, setSize] = useState('');
 
