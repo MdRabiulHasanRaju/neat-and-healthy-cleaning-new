@@ -92,8 +92,8 @@ export default function Contact() {
           <SectionHeading eyebrow="Visit Us" title="Our service area" />
           <div className="mt-10 overflow-hidden rounded-3xl shadow-card ring-1 ring-slate-900/5 dark:ring-white/10">
             <iframe
-              title="Service area map"
-              src={`https://www.google.com/maps?q=${encodeURIComponent(site.address)}&output=embed`}
+             title="Service area map"
+             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d231272.60287548238!2d54.866118486718776!3d25.080377100000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6831405bd3d74f5%3A0x56be719ead126b25!2sNeat%20and%20Healthy%20Cleaning%20Services%20%7C%20Jumairah!5e0!3m2!1sen!2sbd!4v1789023711818!5m2!1sen!2sbd"
               width="100%"
               height="420"
               style={{ border: 0 }}
